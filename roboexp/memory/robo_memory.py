@@ -127,7 +127,7 @@ class RoboMemory:
             root_instance = None
             part_instance_parent = {}
             for instance in self.memory_instances:
-                if instance.label == "table":
+                if root_instance is None and instance.label in object_level_labels:
                     root_instance = instance
                 elif instance.label not in object_level_labels:
                     # Find the max IoU object-level instance, associate the part and the object-level instance
